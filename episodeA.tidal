@@ -1,0 +1,53 @@
+-- Native Supercollider samples:
+-- bd, wobble, gretsch, popkick, odx, supersaw (synth)
+
+-- External samples (please email the show)
+-- LOFI-94, electro-custom
+
+
+-- Weird creepy BG
+xfadeIn 1 $ sound "LOFI-94*4"
+# n "<1 3>"
+# distort 0.2
+-- + speed is angelic, - speed is eerie
+# speed "<-2 -3 2 1>"
+# gain 0.75
+# delay 0.5
+
+d2 $ sound "electro-custom"
+# n "2"
+# gain "0.8"
+
+d3 $ palindrome
+$ sound "bd*4"
+# n "3 7 8"
+# gain 1
+
+d4 $ palindrome
+$ every 4 (fast 2)
+$ iter 4
+$ sound "gretsch:2 popkick:1 popkick:7 bd:3"
+# delay 0.4
+# delay 0.5
+
+d5 $ every 8 (fast 2)
+$ sound "wobble*4"
+# n "2 3 5 6"
+# gain 1
+
+d6 $ every 1 (fast 4)
+$ sound "popkick/2" # n "4" # gain 0
+
+d7 $ every 8 (fast "4 8")
+$ sound "odx"
+# distort 0.2
+# crush 2
+# gain 0.6
+
+d8 $ every 8 (fast 2)
+$ s "supersaw*4"
+# midinote "12 22 30 25"
+# gain 0.8
+# speed 4
+
+-- Thanks!
